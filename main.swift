@@ -5,80 +5,24 @@
 
 import Cocoa
 
-class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    let app: NSApplication
-    let controller: NSWindowController
-    
-    init(app: NSApplication) {
-        self.app = app
-        self.controller = NiblessWindowController()
-    }
-    
-    func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        println("application started!")
-        controller.showWindow(nil)
-        app.activateIgnoringOtherApps(true)
-    }
-    
-    func applicationWillTerminate(aNotification: NSNotification?) {
-        println("application terminated!")
-    }
-    
-    func applicationShouldTerminateAfterLastWindowClosed() -> Bool {
-        return true
-    }
-}
+// Style flags:
+let windowStyle = NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask;
 
-class Menu {
-    let app: NSApplication
-    
-    init(app: NSApplication) {
-        self.app = app
-        self.app.menu = mainMenu()
-    }
-    
-    func mainMenu() -> NSMenu {
-        let tree = [
-            "Apple": [
-                NSMenuItem(title: "Quit",  action: "terminate:", keyEquivalent:"q"),
-            ],
-            ]
-        let result = NSMenu(title: "MainMenu")
-        for (title, items) in tree {
-            let menu = NSMenu(title: title)
-            if let item = result.addItemWithTitle(title, action: nil, keyEquivalent:"") {
-                result.setSubmenu(menu, forItem: item)
-                for item in items {
-                    menu.addItem(item)
-                }
-            }
-        }
-        return result
-    }
-}
+// Window bounds (x, y, width, height).
+let windowRect = NSMakeRect(100, 100, 400, 400);
+let window =  NSWindow(
+    contentRect: windowRect,
+    styleMask: windowStyle,
+    backing: .Buffered,
+    defer: false
+)
 
-class NiblessWindowController: NSWindowController {
-    required init(coder: NSCoder) {
-        fatalError("not implemented")
-    }
-    
-    override init() {
-        super.init(window: nil)
-        let rect = NSMakeRect(0, 0, 480, 320)
-        let style = NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask
-        let window = NSWindow(contentRect:rect, styleMask:style, backing:.Buffered, defer:false)
-        window.title = "App"
-        self.window = window
-    }
-}
+// Window controller:
+let windowController = NSWindowController(window:window)
 
-let app = NSApplication.sharedApplication()
-let delegate = AppDelegate(app: app)
-app.delegate = delegate
+// TODO: Create app delegate to handle system events.
+// TODO: Create menus (especially Quit!)
 
-let menu = Menu(app: app)
-
-app.setActivationPolicy(.Regular)
-atexit_b { app.setActivationPolicy(.Prohibited); return }
-app.run()
+// Show window and run event loop.
+window.orderFrontRegardless()
+NSApplication.sharedApplication().run()
