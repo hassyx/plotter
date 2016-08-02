@@ -5,24 +5,28 @@
 
 import Cocoa
 
-// Style flags:
-let windowStyle = NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask;
+func createWindow() {
+    // Style flags:
+    let windowStyle = NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask;
 
-// Window bounds (x, y, width, height).
-let windowRect = NSMakeRect(100, 100, 400, 400);
-let window =  NSWindow(
-    contentRect: windowRect,
-    styleMask: windowStyle,
-    backing: .Buffered,
-    defer: false
-)
+    // Window bounds (x, y, width, height).
+    let windowRect = NSMakeRect(100, 100, 400, 400);
+    let window =  NSWindow(
+        contentRect: windowRect,
+        styleMask: windowStyle,
+        backing: .Buffered,
+        defer: false
+    )
 
-// Window controller:
-let windowController = NSWindowController(window:window)
+    // Window controller:
+    let windowController = NSWindowController(window:window)
 
-// TODO: Create app delegate to handle system events.
-// TODO: Create menus (especially Quit!)
+    // TODO: Create app delegate to handle system events.
+    // TODO: Create menus (especially Quit!)
 
-// Show window and run event loop.
-window.orderFrontRegardless()
-NSApplication.sharedApplication().run()
+    // Show window and run event loop.
+    window.orderFrontRegardless()
+    NSApplication.sharedApplication().run()
+}
+
+createWindow()
