@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C71A80211D55E3E400577B61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A80201D55E3E400577B61 /* AppDelegate.swift */; };
+		C71A80231D55E3E400577B61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A80221D55E3E400577B61 /* ViewController.swift */; };
+		C71A80251D55E3E400577B61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71A80241D55E3E400577B61 /* Assets.xcassets */; };
+		C71A80281D55E3E400577B61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71A80261D55E3E400577B61 /* Main.storyboard */; };
+		C71A80301D55E8BB00577B61 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A802F1D55E8BB00577B61 /* WindowController.swift */; };
+		C72BC5461D55F2C500348229 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BC5451D55F2C500348229 /* View.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C71A801D1D55E3E400577B61 /* Plotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71A80201D55E3E400577B61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C71A80221D55E3E400577B61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C71A80241D55E3E400577B61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C71A80271D55E3E400577B61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C71A80291D55E3E400577B61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C71A802F1D55E8BB00577B61 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		C72BC5451D55F2C500348229 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C71A801A1D55E3E400577B61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C71A80141D55E3E400577B61 = {
+			isa = PBXGroup;
+			children = (
+				C71A801F1D55E3E400577B61 /* Plotter */,
+				C71A801E1D55E3E400577B61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C71A801E1D55E3E400577B61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C71A801D1D55E3E400577B61 /* Plotter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C71A801F1D55E3E400577B61 /* Plotter */ = {
+			isa = PBXGroup;
+			children = (
+				C71A80201D55E3E400577B61 /* AppDelegate.swift */,
+				C71A80221D55E3E400577B61 /* ViewController.swift */,
+				C71A802F1D55E8BB00577B61 /* WindowController.swift */,
+				C72BC5451D55F2C500348229 /* View.swift */,
+				C71A80241D55E3E400577B61 /* Assets.xcassets */,
+				C71A80261D55E3E400577B61 /* Main.storyboard */,
+				C71A80291D55E3E400577B61 /* Info.plist */,
+			);
+			path = Plotter;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C71A801C1D55E3E400577B61 /* Plotter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C71A802C1D55E3E400577B61 /* Build configuration list for PBXNativeTarget "Plotter" */;
+			buildPhases = (
+				C71A80191D55E3E400577B61 /* Sources */,
+				C71A801A1D55E3E400577B61 /* Frameworks */,
+				C71A801B1D55E3E400577B61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Plotter;
+			productName = Plotter;
+			productReference = C71A801D1D55E3E400577B61 /* Plotter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C71A80151D55E3E400577B61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = hassy;
+				TargetAttributes = {
+					C71A801C1D55E3E400577B61 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = C71A80181D55E3E400577B61 /* Build configuration list for PBXProject "Plotter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C71A80141D55E3E400577B61;
+			productRefGroup = C71A801E1D55E3E400577B61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C71A801C1D55E3E400577B61 /* Plotter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C71A801B1D55E3E400577B61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C71A80251D55E3E400577B61 /* Assets.xcassets in Resources */,
+				C71A80281D55E3E400577B61 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C71A80191D55E3E400577B61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C72BC5461D55F2C500348229 /* View.swift in Sources */,
+				C71A80231D55E3E400577B61 /* ViewController.swift in Sources */,
+				C71A80301D55E8BB00577B61 /* WindowController.swift in Sources */,
+				C71A80211D55E3E400577B61 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C71A80261D55E3E400577B61 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C71A80271D55E3E400577B61 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C71A802A1D55E3E400577B61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C71A802B1D55E3E400577B61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C71A802D1D55E3E400577B61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Plotter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kernelhack.Plotter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C71A802E1D55E3E400577B61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Plotter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kernelhack.Plotter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C71A80181D55E3E400577B61 /* Build configuration list for PBXProject "Plotter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C71A802A1D55E3E400577B61 /* Debug */,
+				C71A802B1D55E3E400577B61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C71A802C1D55E3E400577B61 /* Build configuration list for PBXNativeTarget "Plotter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C71A802D1D55E3E400577B61 /* Debug */,
+				C71A802E1D55E3E400577B61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C71A80151D55E3E400577B61 /* Project object */;
+}
