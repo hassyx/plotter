@@ -19,7 +19,7 @@ class View: NSView {
         bitmapWidth_ = 640
         bitmapHeight_ = 480
         bitmap_ = View.createBitmap(bitmapWidth_, bitmapHeight_)
-        context_ = View.initializeContext(bitmap_)
+        context_ = View.initializeContext(bitmap_, bitmapWidth_, bitmapHeight_)
         
         super.init(coder: coder)!
     }
@@ -28,7 +28,7 @@ class View: NSView {
         bitmapWidth_ = Int(frame.size.width)
         bitmapHeight_ = Int(frame.size.height)
         bitmap_ = View.createBitmap(bitmapWidth_, bitmapHeight_)
-        context_ = View.initializeContext(bitmap_)
+        context_ = View.initializeContext(bitmap_, bitmapWidth_, bitmapHeight_)
         
         super.init(frame: frame)
     }
@@ -37,9 +37,9 @@ class View: NSView {
         return UnsafeMutablePointer<Void>(malloc(width * height * 4))
     }
     
-    static func initializeContext(bitmap: UnsafeMutablePointer<Void>) -> CGContext {
+    static func initializeContext(bitmap: UnsafeMutablePointer<Void>, _ width: Int, _ height: Int) -> CGContext {
         let colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB)
-        return CGBitmapContextCreate(bitmap, 200, 200, 8, 200 * 4, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)!
+        return CGBitmapContextCreate(bitmap, width, height, 8, width * 4, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)!
     }
     
     override func drawRect(dirtyRect: NSRect) {
@@ -50,12 +50,17 @@ class View: NSView {
         // ここのコードがよくわからない。
         // あとで調べて見る。
         
-        CGContextSetRGBFillColor(context_, 0, 0, 0, 0.5)
-        let image = CGBitmapContextCreateImage(context_)
-        
+        //let cont = NSGraphicsContext.currentContext()?.CGContext
         let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
         
-        CGContextDrawImage(context_, rect, image)
+        CGContextSetRGBFillColor(context_, 1, 0, 0, 0.5)
+        CGContextFillRect(context_, rect)
+        
+        let image = CGBitmapContextCreateImage(context_)
+        
+        let windowContext = NSGraphicsContext.currentContext()!.CGContext
+        
+        CGContextDrawImage(windowContext, rect, image)
         
         
         // とりあえずビットマップを生成して、そこに描画して、それを表示してみる。
