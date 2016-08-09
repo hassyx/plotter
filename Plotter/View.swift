@@ -11,7 +11,7 @@ import Cocoa
 class View: NSView {
     
     let context_: CGContext
-    let bitmap_: UnsafeMutablePointer<Void>
+    let bitmap_: UnsafeMutablePointer<UInt8>
     let bitmapWidth_: Int
     let bitmapHeight_: Int
     
@@ -33,11 +33,11 @@ class View: NSView {
         super.init(frame: frame)
     }
     
-    static func createBitmap(width: Int, _ height: Int) -> UnsafeMutablePointer<Void> {
-        return UnsafeMutablePointer<Void>(malloc(width * height * 4))
+    static func createBitmap(width: Int, _ height: Int) -> UnsafeMutablePointer<UInt8> {
+        return UnsafeMutablePointer<UInt8>(malloc(width * height * 4))
     }
     
-    static func initializeContext(bitmap: UnsafeMutablePointer<Void>, _ width: Int, _ height: Int) -> CGContext {
+    static func initializeContext(bitmap: UnsafeMutablePointer<UInt8>, _ width: Int, _ height: Int) -> CGContext {
         let colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB)
         return CGBitmapContextCreate(bitmap, width, height, 8, width * 4, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)!
     }
@@ -50,11 +50,26 @@ class View: NSView {
         // ここのコードがよくわからない。
         // あとで調べて見る。
         
+        /*
+        // これはCoreGraphicsを使ってコンテキストに書き込む例
         //let cont = NSGraphicsContext.currentContext()?.CGContext
         let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
         
         CGContextSetRGBFillColor(context_, 1, 0, 0, 0.5)
         CGContextFillRect(context_, rect)
+        */
+        
+        // ビットマップのメモリ領域に直接書き込んで、それを描画してみる。
+        let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
+
+        for i in 0..<bitmapHeight_ {
+            for j in 0..<bitmapWidth_ {
+                bitmap_.advancedBy(i * bitmapWidth_ + j).memory = 0x80 as UInt8
+            }
+        }
+        
+        
+        
         
         let image = CGBitmapContextCreateImage(context_)
         
