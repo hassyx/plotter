@@ -13,6 +13,7 @@
 		C71A80281D55E3E400577B61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71A80261D55E3E400577B61 /* Main.storyboard */; };
 		C71A80301D55E8BB00577B61 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A802F1D55E8BB00577B61 /* WindowController.swift */; };
 		C72BC5461D55F2C500348229 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BC5451D55F2C500348229 /* View.swift */; };
+		C7FB31E11D5B578D00945B38 /* Plotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB31E01D5B578D00945B38 /* Plotter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C71A80291D55E3E400577B61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C71A802F1D55E8BB00577B61 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		C72BC5451D55F2C500348229 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		C7FB31E01D5B578D00945B38 /* Plotter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				C71A80221D55E3E400577B61 /* ViewController.swift */,
 				C71A802F1D55E8BB00577B61 /* WindowController.swift */,
 				C72BC5451D55F2C500348229 /* View.swift */,
+				C7FB31E01D5B578D00945B38 /* Plotter.swift */,
 				C71A80241D55E3E400577B61 /* Assets.xcassets */,
 				C71A80261D55E3E400577B61 /* Main.storyboard */,
 				C71A80291D55E3E400577B61 /* Info.plist */,
@@ -140,6 +143,7 @@
 				C72BC5461D55F2C500348229 /* View.swift in Sources */,
 				C71A80231D55E3E400577B61 /* ViewController.swift in Sources */,
 				C71A80301D55E8BB00577B61 /* WindowController.swift in Sources */,
+				C7FB31E11D5B578D00945B38 /* Plotter.swift in Sources */,
 				C71A80211D55E3E400577B61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ import Cocoa
 class View: NSView {
     
     let context_: CGContext
-    let bitmap_: UnsafeMutablePointer<UInt8>
+    let bitmap_: UnsafeMutablePointer<Void>
     let bitmapWidth_: Int
     let bitmapHeight_: Int
     
@@ -33,22 +33,20 @@ class View: NSView {
         super.init(frame: frame)
     }
     
-    static func createBitmap(width: Int, _ height: Int) -> UnsafeMutablePointer<UInt8> {
-        return UnsafeMutablePointer<UInt8>(malloc(width * height * 4))
+    static func createBitmap(width: Int, _ height: Int) -> UnsafeMutablePointer<Void> {
+        return UnsafeMutablePointer<Void>(malloc(width * height * 4))
     }
     
-    static func initializeContext(bitmap: UnsafeMutablePointer<UInt8>, _ width: Int, _ height: Int) -> CGContext {
+    static func initializeContext(bitmap: UnsafeMutablePointer<Void>, _ width: Int, _ height: Int) -> CGContext {
         let colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB)
-        return CGBitmapContextCreate(bitmap, width, height, 8, width * 4, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)!
+        let bitmapInfo = CGImageAlphaInfo.PremultipliedLast.rawValue | CGBitmapInfo.ByteOrder32Little.rawValue
+        return CGBitmapContextCreate(bitmap, width, height, 8, width * 4, colorSpace, bitmapInfo)!
     }
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
         // Drawing code here.
-        
-        // ここのコードがよくわからない。
-        // あとで調べて見る。
         
         /*
         // これはCoreGraphicsを使ってコンテキストに書き込む例
@@ -59,6 +57,7 @@ class View: NSView {
         CGContextFillRect(context_, rect)
         */
         
+        /*
         // ビットマップのメモリ領域に直接書き込んで、それを描画してみる。
         let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
 
@@ -67,46 +66,20 @@ class View: NSView {
                 bitmap_.advancedBy(i * bitmapWidth_ + j).memory = 0x80 as UInt8
             }
         }
+        */
         
+        Plotter.setBitmap(bitmap_, bitmapWidth_, bitmapHeight_)
+        Plotter.clear(Color.Red.rawValue)
         
-        
-        
+        let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
         let image = CGBitmapContextCreateImage(context_)
-        
         let windowContext = NSGraphicsContext.currentContext()!.CGContext
-        
         CGContextDrawImage(windowContext, rect, image)
         
         
         // とりあえずビットマップを生成して、そこに描画して、それを表示してみる。
         // それから、ビットマップをplotter内で保持するようにしてみる。
         // または、ビットマップの生成はこちらで行い、plotterに渡すか？
-        
-        
-        /*
-        let context = NSGraphicsContext.currentContext()?.CGContext
-        let bitmap = CGBitmapContextGetData(context)
-        */
-        
-        
-        
-        /*
-        var bPath:NSBezierPath = NSBezierPath(rect: dirtyRect)
-        let fillColor = NSColor(red: 0.5, green: 0.0, blue: 0.5, alpha: 1.0)
-        fillColor.set()
-        bPath.fill()
-        
-        let borderColor = NSColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        borderColor.set()
-        bPath.lineWidth = 12.0
-        bPath.stroke()
-        
-        let circleFillColor = NSColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
-        var circleRect = NSMakeRect(dirtyRect.size.width/4, dirtyRect.size.height/4, dirtyRect.size.width/2, dirtyRect.size.height/2)
-        var cPath: NSBezierPath = NSBezierPath(ovalInRect: circleRect)
-        circleFillColor.set()
-        cPath.fill()
-        */
     }
     
 }
