@@ -11,7 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
 
     override func loadView() {
-        self.view = View(frame: NSMakeRect(0, 0, 640, 480))
+        self.view = View(frame: NSMakeRect(0, 0, 400, 400))
     }
     
     override func viewDidLoad() {
