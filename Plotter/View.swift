@@ -70,7 +70,8 @@ class View: NSView {
         
         Plotter.setBitmap(bitmap_, bitmapWidth_, bitmapHeight_)
         Plotter.clear(Color.Red.rawValue)
-        Plotter.plot(10, 100, Color.White.rawValue)
+        //Plotter.plot(10, 100, Color.White.rawValue)
+        Plotter.drawLine(10, 10, 100, 100, Color.Green.rawValue)
         
         let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
         let image = CGBitmapContextCreateImage(context_)
