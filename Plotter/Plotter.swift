@@ -63,11 +63,12 @@ class Plotter {
     }
     
     static func drawLine(x1: Int, _ y1: Int, _ x2: Int, _ y2: Int, _ color: UInt32) {
+        // x_unitはxの増分、y_unitはyの増分。
         var x_unit = 0
         var y_unit = 0
         
-        var offset = y1 * width_ + x1
-        
+        // ydiffはyが最終的にどれだけ移動するかの絶対値。
+        // もしyが減る場合、y_unitは負になる。
         var ydiff = y2 - y1
         if ydiff < 0 {
             ydiff = -ydiff
@@ -76,6 +77,8 @@ class Plotter {
             y_unit = width_
         }
         
+        // xdiffはxが最終的にどれだけ移動するかの絶対値。
+        // もしxが減る場合、x_unitは負になる。
         var xdiff = x2 - x1
         if xdiff < 0 {
             xdiff = -xdiff
@@ -86,7 +89,16 @@ class Plotter {
         
         let dst = UnsafeMutablePointer<UInt32>(bitmap_!)
         
+        // 描画先メモリのスタート位置。
+        // xまたはyが増える場合、この値はループを重ねるごとにunit分増え続ける。
+        // xまたはyが減る場合、この値はループを重ねるごとにunit分減り続ける。
+        var offset = y1 * width_ + x1
+        
         if xdiff > ydiff {
+            // 傾きが1より小さい場合。
+            // ループを回す際に必ずxを増分させる。
+            // xを増分するたびにerror_termにfdiffを加算し、
+            // error_termがxdiffを超えた際に初めてyを増やす。
             var error_term = 0
             let length = xdiff + 1
             for _ in 0..<length {
@@ -99,6 +111,10 @@ class Plotter {
                 }
             }
         } else {
+            // 傾きが1より大きい場合、または1の場合。
+            // ループを回す際にyを必ず増分させる。
+            // yを増分するたびにerror_termにxdiffを加算し、
+            // error_termがydiffを超えた際に初めてxを増やす。
             var error_term = 0
             let length = ydiff + 1
             for _ in 0..<length {
@@ -112,44 +128,43 @@ class Plotter {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

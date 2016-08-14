@@ -45,33 +45,11 @@ class View: NSView {
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-
-        // Drawing code here.
-        
-        /*
-        // これはCoreGraphicsを使ってコンテキストに書き込む例
-        //let cont = NSGraphicsContext.currentContext()?.CGContext
-        let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
-        
-        CGContextSetRGBFillColor(context_, 1, 0, 0, 0.5)
-        CGContextFillRect(context_, rect)
-        */
-        
-        /*
-        // ビットマップのメモリ領域に直接書き込んで、それを描画してみる。
-        let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
-
-        for i in 0..<bitmapHeight_ {
-            for j in 0..<bitmapWidth_ {
-                bitmap_.advancedBy(i * bitmapWidth_ + j).memory = 0x80 as UInt8
-            }
-        }
-        */
         
         Plotter.setBitmap(bitmap_, bitmapWidth_, bitmapHeight_)
         Plotter.clear(Color.Red.rawValue)
-        //Plotter.plot(10, 100, Color.White.rawValue)
-        Plotter.drawLine(10, 10, 100, 100, Color.Green.rawValue)
+        Plotter.drawLine(100, 0, 0, 100, Color.White.rawValue)
+        Plotter.drawLine(0, 0, 100, 100, Color.White.rawValue)
         
         let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
         let image = CGBitmapContextCreateImage(context_)
