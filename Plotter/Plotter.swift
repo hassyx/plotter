@@ -16,6 +16,16 @@ enum Color: UInt32 {
     case Blue =     0x0000FFFF
 }
 
+struct Vertex {
+    var x: Int
+    var y: Int
+}
+
+struct Shape {
+    var color: UInt32
+    var vertex: [Vertex]
+}
+
 func makeColor(r: UInt8, _ g: UInt8, _ b: UInt8, _ a: UInt8) -> UInt32 {
     return UInt32(r) << 24 | UInt32(g) << 16 | UInt32(b) << 8 | UInt32(a)
 }
@@ -126,6 +136,17 @@ class Plotter {
                     offset += x_unit
                 }
             }
+        }
+    }
+    
+    static func drawShape(shape: Shape) {
+        for i in 0..<shape.vertex.count {
+            let p1 = shape.vertex[i]
+            let p2 = i+1 >= shape.vertex.count ?
+                shape.vertex[0] :
+                shape.vertex[i+1]
+         
+            Plotter.drawLine(p1.x, p1.y, p2.x, p2.y, shape.color)
         }
     }
 }

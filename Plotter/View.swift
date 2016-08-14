@@ -47,9 +47,26 @@ class View: NSView {
         super.drawRect(dirtyRect)
         
         Plotter.setBitmap(bitmap_, bitmapWidth_, bitmapHeight_)
-        Plotter.clear(Color.Red.rawValue)
-        Plotter.drawLine(100, 0, 0, 100, Color.White.rawValue)
-        Plotter.drawLine(0, 0, 100, 100, Color.White.rawValue)
+        Plotter.clear(Color.White.rawValue)
+        //Plotter.drawLine(100, 0, 0, 100, Color.White.rawValue)
+        //Plotter.drawLine(0, 0, 100, 100, Color.White.rawValue)
+        
+        // 図形を書いてみる
+        let triangle = [
+            Vertex(x:160, y:70),
+            Vertex(x:190, y:130),
+            Vertex(x:130, y:130)
+        ]
+        
+        let shape = Shape(
+            color: Color.Red.rawValue,
+            vertex: triangle
+        )
+        
+        Plotter.drawShape(shape)
+        
+        /////////////////////////
+        
         
         let rect = CGRectMake(0, 0, CGFloat(bitmapWidth_), CGFloat(bitmapHeight_))
         let image = CGBitmapContextCreateImage(context_)
